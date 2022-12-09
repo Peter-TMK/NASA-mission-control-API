@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path')
-// const { parse } = require('csv-parse');
-import { parse } from 'csv-parse';
+const { parse } = require('csv-parse');
+// import { parse } from 'csv-parse';
 
 const habitablePlanets = [];
 
