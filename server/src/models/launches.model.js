@@ -8,7 +8,7 @@ const launch = {
     rocket: 'Explorer IS1',
     launchDate: new Date('September 24, 2030'),
     target: 'Tunde-442 b',
-    customer: ['Tunde', 'NASA'],
+    customers: ['Tunde', 'NASA'],
     upcoming: true,
     success: true,
 };
