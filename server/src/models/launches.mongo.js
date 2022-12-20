@@ -16,7 +16,7 @@ const launchesSchema = new mongoose.Schema({
     rocket: {
         type: String,
         required: true,
-    }
+    },
     target: {
         type: String,
         required: true,
@@ -31,4 +31,6 @@ const launchesSchema = new mongoose.Schema({
         required: true,
         default: true,
     },
-})
+});
+
+module.exports = mongoose.model('Launch', launchesSchema);
