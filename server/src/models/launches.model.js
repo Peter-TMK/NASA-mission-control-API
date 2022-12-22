@@ -8,18 +8,18 @@ const DEFAULT_FLIGHT_NMUBER = 100;
 
 // let latestFlightNumber = 100;
 
-const launch = {
-    flightNumber: 100, // flight_number
-    mission: 'Tunde Exploration X', // name
-    rocket: 'Explorer IS1', // corresponds to rocket.name
-    launchDate: new Date('September 24, 2030'), // date_local
-    target: 'Kepler-62 f', // not applicable
-    customers: ['Tunde', 'NASA'], // payload.customers for each payload
-    upcoming: true, // upcoming
-    success: true, // success
-};
+// const launch = {
+//     flightNumber: 100, // flight_number
+//     mission: 'Tunde Exploration X', // name
+//     rocket: 'Explorer IS1', // corresponds to rocket.name
+//     launchDate: new Date('September 24, 2030'), // date_local
+//     target: 'Kepler-62 f', // not applicable
+//     customers: ['Tunde', 'NASA'], // payload.customers for each payload
+//     upcoming: true, // upcoming
+//     success: true, // success
+// };
 
-saveLaunch(launch);
+// saveLaunch(launch);
 
 const SPACEX_API_URL = 'https://api.spacexdata.com/v4/launches/query';
 
@@ -113,9 +113,12 @@ async function getLatestFlightNumber(){
     return latestLaunch.flightNumber;
 }
 
-async function getAllLaunches(){
+async function getAllLaunches(skip, limit){
     return await launchesDb
-    .find({}, { '_id':0, '__v':0 });
+    .find({}, { '_id':0, '__v':0 })
+    .sort({ flightNumber: 1 })
+    .skip(skip) // works for pages
+    .limit(limit);
     // return Array.from(launches.values());
 }
 

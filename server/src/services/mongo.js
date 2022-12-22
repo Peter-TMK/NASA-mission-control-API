@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGO_URL = 'mongodb://localhost:27017/Space_API'
+const MONGO_URL = process.env.MONGO_URL
 
 mongoose.connection.once('open', ()=> {
     console.log('MongoDb connected successfully!');
